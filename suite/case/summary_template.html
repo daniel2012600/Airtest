@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
+<html>
+<head>
+    <title>測試結果</title>
+    <style>
+        .fail {
+            color: red;
+			text-align: center;
+        }
+        .success {
+            color: green;
+			text-align: center;
+        }
+		.details-col-elapsed {
+			width: 7em;
+			text-align: center;
+		}
+		.details-col-msg {
+			width: 7em;
+			text-align: center;
+			background-color:#ccc;
+		}
+
+    </style>
+</head>
+<body>
+<div class="panel panel-primary" style="border-style:none;">
+	<div class="panel-heading" >
+		<h2>
+			<font color="white">CDP 測試站測試　業主:《{{project}}》</font>
+		</h2>
+	</div>
+    <div class="panel-body" >
+        <div class="col-xs-9">
+            <table width="800" border="thin" cellspacing="0" style="font-size:20px" cellpadding="0" class='table table-striped'>
+                <tr  width="600"  >
+                    <th class="details-col-msg ">業主</th>
+                    <th width="300" class='details-col-msg   '>案例名稱</th>
+                    <th class='details-col-msg  '>測試目標</th>
+                    <th class='details-col-msg  '>測試結果</th>
+                </tr>
+                {% for r in results %}
+                <tr>
+                    <td class='details-col-elapsed'>{{r.owner}}</td>
+                    <td class='details-col-elapsed'><a href="{{r.time}}/{{r.owner}}/{{r.name}}/{{r.name}}.log/log.html" target="view_window">{{r.ch_name}}</a>
+                    </td>
+                    <td class="details-col-elapsed">{{r.desc}}</td>
+                    <td class="{{'success' if r.result else 'fail'}}">{{"成功" if r.result else "失败"}}</td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+
+    </div>
+</div>
+</body>
+
+</html>

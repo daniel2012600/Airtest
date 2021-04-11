@@ -1,0 +1,6 @@
+2021-02-17 16:24:10,614 ERROR name 'my_fail' is not defined
+Traceback (most recent call last):
+  File ".\main.py", line 236, in main
+    print(my_fail)
+NameError: name 'my_fail' is not defined
+2021-02-17 16:24:10,615 CRITICAL 留存已執行測試之結果 : [{'owner': 'cdppj', 'name': 'layout_check', 'ch_name': '總覽頁面檢查', 'desc': '確認總覽頁面是否有資料', 'time': 'report_10_39', 'result': True}, {'owner': 'cdppj', 'name': 'login_check', 'ch_name': '登入頁面檢查', 'desc': '確認登入成功', 'time': 'report_10_39', 'result': True}]
